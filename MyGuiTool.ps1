@@ -22,7 +22,7 @@ Add-Type -AssemblyName System.Drawing
 
 # Maak het hoofdvenster
 $form = New-Object System.Windows.Forms.Form
-$form.Text = 'Windows Optimization Tool v1.0'
+$form.Text = 'Volt Optimization Tool v1.0'
 $form.Size = New-Object System.Drawing.Size(750, 600)
 $form.StartPosition = 'CenterScreen'
 $form.FormBorderStyle = 'FixedDialog'
@@ -457,3 +457,4 @@ $form.Controls.Add($versionLabel)
 # Toon het formulier
 $form.Add_Shown({$form.Activate()})
 [void]$form.ShowDialog()
+
