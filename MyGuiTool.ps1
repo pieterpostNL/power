@@ -40,7 +40,7 @@ $form.Controls.Add($headerPanel)
 $titleLabel = New-Object System.Windows.Forms.Label
 $titleLabel.Location = New-Object System.Drawing.Point(20, 15)
 $titleLabel.Size = New-Object System.Drawing.Size(710, 30)
-$titleLabel.Text = '⚡ Windows Optimization Tool'
+$titleLabel.Text = '⚡ Volt Optimization Tool'
 $titleLabel.Font = New-Object System.Drawing.Font('Segoe UI', 16, [System.Drawing.FontStyle]::Bold)
 $titleLabel.ForeColor = [System.Drawing.Color]::White
 $headerPanel.Controls.Add($titleLabel)
@@ -457,4 +457,5 @@ $form.Controls.Add($versionLabel)
 # Toon het formulier
 $form.Add_Shown({$form.Activate()})
 [void]$form.ShowDialog()
+
 
