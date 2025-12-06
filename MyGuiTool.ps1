@@ -196,12 +196,7 @@ $btnRemoveBloatware.BackColor = [System.Drawing.Color]::FromArgb(220, 50, 50)
 $btnRemoveBloatware.ForeColor = [System.Drawing.Color]::White
 $btnRemoveBloatware.FlatStyle = 'Flat'
 $btnRemoveBloatware.Add_Click({
-    $result = [System.Windows.Forms.MessageBox]::Show(
-        "Weet je zeker dat je bloatware apps wilt verwijderen?`n`nDit verwijdert: Candy Crush, Xbox Game Bar, 3D Viewer, Mixed Reality Portal, en meer.",
-        "Bevestiging",
-        [System.Windows.Forms.MessageBoxButtons]::YesNo,
-        [System.Windows.Forms.MessageBoxIcon]::Warning
-    )
+    $result = [System.Windows.Forms.MessageBox]::Show("Weet je zeker dat je bloatware apps wilt verwijderen?`n`nDit verwijdert: Candy Crush, Xbox Game Bar, 3D Viewer, Mixed Reality Portal, en meer.", "Bevestiging", [System.Windows.Forms.MessageBoxButtons]::YesNo, [System.Windows.Forms.MessageBoxIcon]::Warning)
     
     if ($result -eq 'Yes') {
         $debloatOutputBox.Text = "Bezig met verwijderen van bloatware apps...`n`n"
@@ -261,12 +256,7 @@ $btnDisableMSStore.BackColor = [System.Drawing.Color]::FromArgb(220, 50, 50)
 $btnDisableMSStore.ForeColor = [System.Drawing.Color]::White
 $btnDisableMSStore.FlatStyle = 'Flat'
 $btnDisableMSStore.Add_Click({
-    $result = [System.Windows.Forms.MessageBox]::Show(
-        "Weet je zeker dat je de Microsoft Store wilt uitschakelen?",
-        "Bevestiging",
-        [System.Windows.Forms.MessageBoxButtons]::YesNo,
-        [System.Windows.Forms.MessageBoxIcon]::Warning
-    )
+    $result = [System.Windows.Forms.MessageBox]::Show("Weet je zeker dat je de Microsoft Store wilt uitschakelen?", "Bevestiging", [System.Windows.Forms.MessageBoxButtons]::YesNo, [System.Windows.Forms.MessageBoxIcon]::Warning)
     
     if ($result -eq 'Yes') {
         $debloatOutputBox.Text = "Bezig met uitschakelen Microsoft Store...`n"
@@ -289,12 +279,7 @@ $btnRemoveOneDrive.BackColor = [System.Drawing.Color]::FromArgb(220, 50, 50)
 $btnRemoveOneDrive.ForeColor = [System.Drawing.Color]::White
 $btnRemoveOneDrive.FlatStyle = 'Flat'
 $btnRemoveOneDrive.Add_Click({
-    $result = [System.Windows.Forms.MessageBox]::Show(
-        "Weet je zeker dat je OneDrive wilt verwijderen?",
-        "Bevestiging",
-        [System.Windows.Forms.MessageBoxButtons]::YesNo,
-        [System.Windows.Forms.MessageBoxIcon]::Warning
-    )
+    $result = [System.Windows.Forms.MessageBox]::Show("Weet je zeker dat je OneDrive wilt verwijderen?", "Bevestiging", [System.Windows.Forms.MessageBoxButtons]::YesNo, [System.Windows.Forms.MessageBoxIcon]::Warning)
     
     if ($result -eq 'Yes') {
         $debloatOutputBox.Text = "Bezig met verwijderen van OneDrive...`n"
@@ -332,7 +317,6 @@ $btnDisableTelemetry.FlatStyle = 'Flat'
 $btnDisableTelemetry.Add_Click({
     $debloatOutputBox.Text = "Bezig met uitschakelen telemetrie...`n"
     try {
-        # Stop telemetrie services
         Stop-Service DiagTrack -ErrorAction SilentlyContinue
         Stop-Service dmwappushservice -ErrorAction SilentlyContinue
         Set-Service DiagTrack -StartupType Disabled -ErrorAction SilentlyContinue
@@ -409,46 +393,33 @@ $aboutText.Multiline = $true
 $aboutText.ScrollBars = 'Vertical'
 $aboutText.Font = New-Object System.Drawing.Font('Segoe UI', 10)
 $aboutText.ReadOnly = $true
-$aboutText.Text = @"
-╔══════════════════════════════════════════════════════╗
-║       PowerShell GUI Tool v1.0                      ║
-╚══════════════════════════════════════════════════════╝
 
-📦 One-Line Installer Tool
-   Start deze tool met één regel PowerShell!
+$aboutContent = "PowerShell GUI Tool v1.0`n`n"
+$aboutContent += "One-Line Installer Tool`n"
+$aboutContent += "Start deze tool met een regel PowerShell!`n`n"
+$aboutContent += "Gebruik:`n"
+$aboutContent += "irm https://raw.githubusercontent.com/pieterpostNL/PowerShell-GUI-Tool/main/MyGuiTool.ps1 | iex`n`n"
+$aboutContent += "Functies:`n"
+$aboutContent += "- Handige Windows tools`n"
+$aboutContent += "- Windows Debloat functies`n"
+$aboutContent += "- Modern GUI interface`n"
+$aboutContent += "- Plug & Play installatie`n`n"
+$aboutContent += "Vereisten:`n"
+$aboutContent += "- PowerShell 5.1 of hoger`n"
+$aboutContent += "- Windows OS`n"
+$aboutContent += "- Admin rechten voor debloat functies`n`n"
+$aboutContent += "Waarschuwingen:`n"
+$aboutContent += "- Maak altijd een systeemherstel punt`n"
+$aboutContent += "- Test eerst op een test systeem`n"
+$aboutContent += "- Sommige apps kunnen nodig zijn`n"
+$aboutContent += "- Acties zijn permanent`n`n"
+$aboutContent += "Repository:`n"
+$aboutContent += "github.com/pieterpostNL/PowerShell-GUI-Tool`n`n"
+$aboutContent += "Licentie: MIT`n"
+$aboutContent += "Versie: 1.0`n"
+$aboutContent += "Made with PowerShell"
 
-🚀 Gebruik:
-   irm https://raw.githubusercontent.com/pieterpostNL/PowerShell-GUI-Tool/main/MyGuiTool.ps1 | iex
-
-✨ Functies:
-   • Handige Windows tools
-   • Windows Debloat functies
-   • Modern GUI interface
-   • Plug & Play installatie
-
-🔧 Vereisten:
-   • PowerShell 5.1 of hoger
-   • Windows OS
-   • Admin rechten voor debloat functies
-
-⚠️ Debloat Waarschuwingen:
-   • Maak altijd een systeemherstel punt
-   • Test eerst op een test systeem
-   • Sommige apps kunnen nodig zijn
-   • Acties zijn permanent
-
-💡 Tips:
-   • Druk op de knoppen om functies uit te proberen
-   • Gebruik de tabs om tussen secties te schakelen
-   • Debloat tab bevat krachtige tools
-
-📝 Repository:
-   github.com/pieterpostNL/PowerShell-GUI-Tool
-
-⚖️ Licentie: MIT
-📅 Versie: 1.0
-👨‍💻 Made with PowerShell
-"@
+$aboutText.Text = $aboutContent
 $tab3.Controls.Add($aboutText)
 
 # Footer buttons
