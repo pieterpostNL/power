@@ -22,7 +22,7 @@ Add-Type -AssemblyName System.Drawing
 
 # Maak het hoofdvenster
 $form = New-Object System.Windows.Forms.Form
-$form.Text = 'Ultimate Windows Optimizer v2.0'
+$form.Text = 'Volt Windows Optimizer'
 $form.Size = New-Object System.Drawing.Size(850, 650)
 $form.StartPosition = 'CenterScreen'
 $form.FormBorderStyle = 'FixedDialog'
@@ -40,7 +40,7 @@ $form.Controls.Add($headerPanel)
 $titleLabel = New-Object System.Windows.Forms.Label
 $titleLabel.Location = New-Object System.Drawing.Point(20, 15)
 $titleLabel.Size = New-Object System.Drawing.Size(810, 30)
-$titleLabel.Text = '⚡ Ultimate Windows Optimizer'
+$titleLabel.Text = '⚡ Volt Windows Optimizer'
 $titleLabel.Font = New-Object System.Drawing.Font('Segoe UI', 16, [System.Drawing.FontStyle]::Bold)
 $titleLabel.ForeColor = [System.Drawing.Color]::White
 $headerPanel.Controls.Add($titleLabel)
@@ -853,3 +853,4 @@ $form.Controls.Add($versionLabel)
 # Toon het formulier
 $form.Add_Shown({$form.Activate()})
 [void]$form.ShowDialog()
+
